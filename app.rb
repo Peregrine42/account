@@ -1,5 +1,7 @@
-require 'bundler/setup'
+require 'rubygems'
+require 'bundler'
+Bundler.require(:default)
 
-class App
+class App < Sinatra::Base
 
 end
