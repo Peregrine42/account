@@ -3,7 +3,9 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'rack'
 gem 'thin'
-gem 'activerecord'
+gem 'activerecord', require: "active_record"
+gem 'sinatra-activerecord'
+gem 'mysql2'
 
 group :development, :test do
 	gem 'rspec'

@@ -1,0 +1,26 @@
+development:
+  adapter: mysql
+  database: account_development
+  hostname: 127.0.0.1
+  username: account
+  password: account
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: mysql
+  database: account_test
+  hostname: 127.0.0.1
+  username: account
+  password: account
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: mysql
+  database: account_production
+  hostname: 127.0.0.1
+  username: account
+  password: account
+  pool: 5
+  timeout: 5000
