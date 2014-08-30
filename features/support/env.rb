@@ -17,3 +17,10 @@ end
 World do
   AppWorld.new
 end
+
+ActiveRecord::Base.logger = nil
+
+DatabaseCleaner.strategy = :truncation
+Before do
+  DatabaseCleaner.clean
+end

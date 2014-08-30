@@ -5,10 +5,12 @@ gem 'rack'
 gem 'thin'
 gem 'activerecord', require: "active_record"
 gem 'sinatra-activerecord'
-gem 'mysql2'
+gem 'sqlite3'
+gem 'pry'
+gem 'database_cleaner'
 
 group :development, :test do
-	gem 'rspec'
+  gem 'rspec'
 	gem 'cucumber'
 	gem 'capybara'
 end

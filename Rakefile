@@ -1,6 +1,7 @@
+ENV['RACK_ENV'] ||= 'test'
 require 'rubygems'
-require 'bundler'
-Bundler.require(:default)
+require 'bundler/setup'
+Bundler.require
 
 require 'cucumber'
 require 'cucumber/rake/task'
