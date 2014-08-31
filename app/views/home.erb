@@ -1,0 +1,29 @@
+<table border="1">
+  <tr>
+    <th>Date</th>
+    <th>Description</th>
+    <th colspan="2">Amount (£)</th>
+    <% @categories.each do |category| %>
+      <th colspan="2"><%= category.name %> (£)</th>
+    <% end %>
+  </tr>
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.date.strftime('%d/%m/%Y') %></td>
+      <td><%= transaction.description %></td>
+      <td><%= transaction.amount < 0 ? '-' : '+'%><%= '%.2f' % transaction.amount %></td>
+      <td></td>
+      <% (transaction.category.column * 2).times do %>
+        <td></td>
+      <% end %>
+      <td><%= transaction.amount        < 0 ? '-' : '+'%><%= '%.2f' % transaction.amount        %></td>
+      <td><%= transaction.running_total < 0 ? '-' : '+'%><%= '%.2f' % transaction.running_total %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Total (£)</td>
+    <td><%= @total < 0 ? '-' : '+'%><%= '%.2f' % @total %></td>
+  </tr>
+</table>

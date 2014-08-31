@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727154503) do
+ActiveRecord::Schema.define(version: 20140830172123) do
+
+  create_table "categories", force: true do |t|
+    t.text    "name"
+    t.integer "column"
+  end
 
   create_table "transactions", force: true do |t|
-    t.decimal "amount"
-    t.text    "description"
-    t.integer "category_id"
-    t.date    "date"
+    t.decimal  "amount"
+    t.text     "description"
+    t.integer  "category_id"
+    t.date     "date"
+    t.datetime "created_at"
   end
 
 end
