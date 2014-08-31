@@ -2,8 +2,12 @@ class Transaction < ActiveRecord::Base
   belongs_to :category
   scope :table_order, -> { order(date: :asc, created_at: :asc) }
 
-  def running_total
+  def running_total_for_category
     previous_transactions(category.transactions).inject(0) { |sum, t| sum + t.amount }
+  end
+
+  def running_total
+    previous_transactions(Transaction.all).inject(0) { |sum, t| sum + t.amount }
   end
 
   def previous_transactions transactions

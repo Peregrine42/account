@@ -12,12 +12,12 @@
       <td><%= transaction.date.strftime('%d/%m/%Y') %></td>
       <td><%= transaction.description %></td>
       <td><%= transaction.amount < 0 ? '-' : '+'%><%= '%.2f' % transaction.amount %></td>
-      <td></td>
+      <td><%= transaction.running_total < 0 ? '-' : '+'%><%= '%.2f' % transaction.running_total %></td>
       <% (transaction.category.column * 2).times do %>
         <td></td>
       <% end %>
-      <td><%= transaction.amount        < 0 ? '-' : '+'%><%= '%.2f' % transaction.amount        %></td>
-      <td><%= transaction.running_total < 0 ? '-' : '+'%><%= '%.2f' % transaction.running_total %></td>
+      <td><%= transaction.amount                     < 0 ? '-' : '+'%><%= '%.2f' % transaction.amount                     %></td>
+      <td><%= transaction.running_total_for_category < 0 ? '-' : '+'%><%= '%.2f' % transaction.running_total_for_category %></td>
     </tr>
   <% end %>
   <tr>
