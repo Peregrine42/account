@@ -10,7 +10,7 @@
   <% @transactions.each do |transaction| %>
     <tr>
       <td><%= transaction.date.strftime('%d/%m/%Y') %></td>
-      <td><%= transaction.description %></td>
+      <td><a href="/transaction/<%= transaction.id %>"><%= transaction.description %></a></td>
       <td><%= transaction.amount < 0 ? '-' : '+'%><%= '%.2f' % transaction.amount %></td>
       <td><%= transaction.running_total < 0 ? '-' : '+'%><%= '%.2f' % transaction.running_total %></td>
       <% (transaction.category.column * 2).times do %>

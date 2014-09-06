@@ -91,6 +91,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  activesupport
   capybara
   cucumber
   database_cleaner

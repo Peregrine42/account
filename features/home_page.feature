@@ -25,7 +25,6 @@ Feature: the home page
     When  I visit the homepage
     Then  I see the transactions ordered by date, then by date created
 
-  @wip
   Scenario: show running totals
     Given there are transactions and categories in the database
     When  I visit the homepage
