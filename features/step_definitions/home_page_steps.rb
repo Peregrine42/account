@@ -40,10 +40,10 @@ Then "I see the transactions ordered by date, then by date created" do
 end
 
 Then "I see running totals beside the transactions" do
+  puts page.body
   expect(page).to have_xpath "//table/tr[position()=#{2 + 0}]/td[position()=#{5 + (0*2) + 1} and contains(., '10.45')]"
   expect(page).to have_xpath "//table/tr[position()=#{2 + 1}]/td[position()=#{5 + (0*2) + 1} and contains(., '21.00')]"
 
   expect(page).to have_xpath "//table/tr[position()=#{2 + 0}]/td[position()=#{3 + (0*2) + 1} and contains(., '10.45')]"
   expect(page).to have_xpath "//table/tr[position()=#{2 + 1}]/td[position()=#{3 + (0*2) + 1} and contains(., '21.00')]"
-  expect(page).to have_xpath "//table/tr[position()=#{2 + 2}]/td[position()=#{3 + (0*2) + 1} and contains(., '26.00')]"
 end

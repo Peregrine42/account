@@ -12,13 +12,13 @@
     <tr>
       <td><%= transaction.date.strftime('%d/%m/%Y') %></td>
       <td><a href="/transaction/<%= transaction.id %>"><%= transaction.description %></a></td>
-      <td><%= transaction.amount < 0 ? '-' : '+'%><%= '%.2f' % transaction.amount %></td>
-      <td><%= transaction.running_total < 0 ? '-' : '+'%><%= '%.2f' % transaction.running_total %></td>
-      <% (transaction.category.column * 2).times do %>
+      <td><%= transaction.amount_as_string %></td>
+      <td><%= transaction.running_total_as_string %></td>
+      <% (transaction.columns_from_left).times do %>
         <td></td>
       <% end %>
-      <td><%= transaction.amount                     < 0 ? '-' : '+'%><%= '%.2f' % transaction.amount                     %></td>
-      <td><%= transaction.running_total_for_category < 0 ? '-' : '+'%><%= '%.2f' % transaction.running_total_for_category %></td>
+      <td><%= transaction.amount_as_string %></td>
+      <td><%= transaction.running_total_as_string %></td>
     </tr>
   <% end %>
   <tr>
