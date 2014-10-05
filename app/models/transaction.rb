@@ -11,6 +11,10 @@ class Transaction < ActiveRecord::Base
     as_money(amount)
   end
 
+  def amount_as_decimal
+    as_decimal amount
+  end
+
   def running_total_as_string
     as_money(running_total_for_category)
   end
@@ -34,7 +38,11 @@ class Transaction < ActiveRecord::Base
   end
 
   def as_money value
-    value = 0 if value.nil?
-    (value >= 0 ? "+" : "-") + "%.02f" % value
+    return "" if value.nil?
+    (value >= 0 ? "+" : "-") + as_decimal(value)
+  end
+
+  def as_decimal value
+    "%.02f" % value
   end
 end
