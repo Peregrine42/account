@@ -19,3 +19,9 @@ Feature: transactions
     And   I change some details
     And   I click the Save link
     Then  the updated transaction appears on the homepage
+
+  Scenario: deleting a transaction
+    Given there is a transaction and a category in the database
+    When  I click the transaction description on the homepage
+    And   I click the delete link for the transaction
+    Then  the transaction is no longer in the database

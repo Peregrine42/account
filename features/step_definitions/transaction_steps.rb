@@ -13,6 +13,14 @@ When "I click the transaction description on the homepage" do
   click_link 'a transaction'
 end
 
+When "I click the delete link for the transaction" do
+  click_button 'delete'
+end
+
+Then "the transaction is no longer in the database" do
+  expect(Transaction.find_by(description: 'a transaction')).to be_nil
+end
+
 When "I click the New link on the homepage" do
   visit '/'
   click_link 'New Transaction'

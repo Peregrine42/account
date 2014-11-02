@@ -26,6 +26,11 @@ class App
     end
   end
 
+  post '/transaction/:id/delete' do
+    Transaction.find(params[:id]).destroy
+    redirect '/'
+  end
+
   post '/transaction' do
     @transaction = Transaction.new(params['transaction'])
     @categories = Category.all.order('column')
