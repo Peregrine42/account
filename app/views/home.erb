@@ -18,14 +18,14 @@
         <td></td>
       <% end %>
       <td><%= transaction.amount_as_string %></td>
-      <td><%= transaction.running_total_as_string %></td>
+      <td><%= transaction.running_total_for_category_as_string %></td>
     </tr>
   <% end %>
   <tr>
     <td></td>
     <td></td>
     <td>Total (£)</td>
-    <td><%= @total < 0 ? '-' : '+'%><%= '%.2f' % @total %></td>
+    <td><%= @total > 0 ? '+' : '' %><%= '%.2f' % @total %></td>
   </tr>
 </table>
 <%= will_paginate @transactions %>
