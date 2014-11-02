@@ -39,7 +39,7 @@ class Transaction < ActiveRecord::Base
 
   def as_money value
     return "" if value.nil?
-    (value >= 0 ? "+" : "") + as_decimal(value)
+    (value > 0 ? "+" : "") + as_decimal(value)
   end
 
   def as_decimal value
