@@ -28,3 +28,4 @@
     <td><%= @total < 0 ? '-' : '+'%><%= '%.2f' % @total %></td>
   </tr>
 </table>
+<%= will_paginate @transactions %>
