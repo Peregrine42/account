@@ -52,7 +52,7 @@ When "I change some details" do
 end
 
 When "I click the Save link" do
-  click_button 'save'
+  click_button 'Save'
 end
 
 Then "the updated transaction appears on the homepage" do

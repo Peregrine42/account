@@ -6,14 +6,24 @@ class App
     erb :'transaction/new'
   end
 
-  get 'transaction/:id/edit' do
+  get '/transaction/:id/edit' do
     @transaction = Transaction.find(params[:id])
+    @categories = Category.all.order('column')
     erb :'transaction/edit'
   end
 
   get '/transaction/:id' do
     @transaction = Transaction.find(params[:id])
     erb :'transaction/show'
+  end
+
+  post '/transaction/:id/update' do
+    @transaction = Transaction.update(params[:id], params[:transaction])
+    if @transaction.valid?
+      redirect '/'
+    else
+      erb :'transaction/edit'
+    end
   end
 
   post '/transaction' do

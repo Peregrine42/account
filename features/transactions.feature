@@ -12,7 +12,6 @@ Feature: transactions
     And   I click the Create link
     Then  the transaction appears on the homepage
 
-  @wip
   Scenario: editing a transaction
     Given there is a transaction and a category in the database
     When  I click the transaction description on the homepage

@@ -2,7 +2,7 @@ Given "there are transactions and categories in the database" do
   Category.create(name: 'Self',        column: 0)
   Category.create(name: 'Council Tax', column: 1)
 
-  Transaction.create(description: 'council tax 1', amount: 5,     category_id: 2, date: Date.new(2014, 5, 7))
+  Transaction.create(description: 'council tax 1', amount: 5,     category_id: 2, date: "07/05/2014")
   Transaction.create(description: 'self 1',        amount: 10.45, category_id: 1, date: Date.new(2014, 5, 6))
   Transaction.create(description: 'self 2',        amount: 10.55, category_id: 1, date: Date.new(2014, 5, 6))
 end
@@ -40,7 +40,6 @@ Then "I see the transactions ordered by date, then by date created" do
 end
 
 Then "I see running totals beside the transactions" do
-  puts page.body
   expect(page).to have_xpath "//table/tr[position()=#{2 + 0}]/td[position()=#{5 + (0*2) + 1} and contains(., '10.45')]"
   expect(page).to have_xpath "//table/tr[position()=#{2 + 1}]/td[position()=#{5 + (0*2) + 1} and contains(., '21.00')]"
 

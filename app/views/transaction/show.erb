@@ -1,5 +1,5 @@
 <h2><%= @transaction.description %></h2>
 <p>Category: <%= @transaction.category.name %></p>
 <p>Date: <%= @transaction.date.strftime("%A #{ @transaction.date.day.ordinalize } %B %Y") %></p>
-<p>Amount (£): <%= @transaction.amount < 0 ? '-' : '+'%><%= '%.2f' % @transaction.amount %></p>
+<p>Amount (£): <%= @transaction.amount_as_string %></p>
 <p><a href="/transaction/<%= @transaction.id %>/edit">edit</a>
