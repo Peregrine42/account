@@ -26,11 +26,11 @@ Then "I see all the categories" do
 end
 
 Then "I see the transactions underneath their category" do
-  expect(page).to have_xpath "//table/tr/th[position()=#{4 + (0)} and contains(., 'Self')]"
-  expect(page).to have_xpath "//table/tr/th[position()=#{4 + (1)} and contains(., 'Council Tax')]"
+  expect(page).to have_xpath "//table/tr/th[position()=#{4 + (0)} and contains(., 'Council Tax')]"
+  expect(page).to have_xpath "//table/tr/th[position()=#{4 + (1)} and contains(., 'Self')]"
 
-  expect(page).to have_xpath "//table/tr/td[position()=#{5 + (1*2)} and contains(., '5.00')]"
   expect(page).to have_xpath "//table/tr/td[position()=#{5 + (0*2)} and contains(., '10.45')]"
+  expect(page).to have_xpath "//table/tr/td[position()=#{5 + (1*2)} and contains(., '5.00')]"
 end
 
 Then "I see the transactions ordered by date, then by date created" do

@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
+require 'byebug'
 
 require_relative '../../app'
 

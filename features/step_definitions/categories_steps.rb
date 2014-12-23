@@ -12,8 +12,8 @@ When 'click the New Category link' do
 end
 
 When 'fill out the New Category form' do
-  fill_in 'Name', with: 'groceries'
-
+  fill_in 'category[name]', with: 'groceries'
+  click_button 'Create Category'
 end
 
 Then 'I see the new category on the homepage' do
