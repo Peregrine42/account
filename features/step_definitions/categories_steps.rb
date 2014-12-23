@@ -25,5 +25,20 @@ When 'click the delete link on category 1' do
 end
 
 Then 'category 1 disappears from the list' do
+  expect(page.body).to     have_content 'Categories'
   expect(page.body).to_not have_content 'category 1'
+end
+
+When 'click the edit link on category 1' do
+  page.all(:link,"Edit")[0].click
+end
+
+When 'I change the name of the category' do
+  fill_in 'category[name]', with: 'a new category'
+  click_button 'Done'
+end
+
+Then "category 1's name is changed" do
+  expect(page.body).to have_content 'Categories'
+  expect(page.body).to have_content 'a new category'
 end

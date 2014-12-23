@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe App, 'GET /category' do
 
-  let(:category1) { double(:category1, name: 'food')  }
-  let(:category2) { double(:category2, name: 'drink') }
+  let(:category1) { double(:category1, name: 'food', id: 1)  }
+  let(:category2) { double(:category2, name: 'drink', id: 2) }
 
   it 'gets all the categories' do
     allow(Category).to receive(:all).and_return([category1, category2])
@@ -43,4 +43,15 @@ describe App, 'POST /category' do
     end
   end
 
+end
+
+describe App, 'GET /delete' do
+
+  let(:category1) { double(:category1, name: 'food', id: 1)  }
+
+  it 'deletes the category' do
+    allow(Category).to receive(:find).and_return(category1)
+    expect(category1).to receive(:destroy)
+    get '/category/1/delete'
+  end
 end

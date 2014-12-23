@@ -21,4 +21,15 @@ class App
       erb :'category/new'
     end
   end
+
+  get '/category/:id/delete' do
+    @category = Category.find(params[:id])
+    if @category.destroy
+      # flash success
+    else
+      # flash nope
+    end
+    redirect '/category'
+  end
+
 end
