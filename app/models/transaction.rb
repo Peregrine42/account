@@ -45,4 +45,12 @@ class Transaction < ActiveRecord::Base
   def as_decimal value
     "%.02f" % value
   end
+
+  def description
+    desc = super
+    if desc.nil? && Transaction.all.count == 0
+      desc = 'Brought Forward'
+    end
+    desc
+  end
 end

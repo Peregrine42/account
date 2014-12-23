@@ -1,8 +1,8 @@
 class App
   get '/transaction/new' do
-    @transaction = Transaction.new
-    @categories = Category.all
-
+    @transaction  = Transaction.new
+    @transactions = Transaction.all
+    @categories   = Category.all
     erb :'transaction/new'
   end
 
@@ -19,6 +19,7 @@ class App
 
   post '/transaction/:id/update' do
     @transaction = Transaction.update(params[:id], params[:transaction])
+    @categories = Category.all
     if @transaction.valid?
       redirect '/'
     else
@@ -33,6 +34,7 @@ class App
 
   post '/transaction' do
     @transaction = Transaction.new(params['transaction'])
+    @transactions = Transaction.all
     @categories = Category.all
     if @transaction.save
       redirect '/'

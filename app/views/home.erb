@@ -1,5 +1,15 @@
+<h1>Account</h1>
 <p><a href=/category>Category Details</a></p>
 <p><a href=/transaction/new>New Transaction</a></p>
+<% if @categories.empty? %>
+  <h3>To get started, click <a href=/category/new>here</a> to create a new category to use as a column heading.</h3>
+<% else %>
+  <% if @transactions.empty? %>
+    <h3>To get started adding incomings and outgoings, click <a href=/transaction/new>here</a> to create a new transaction.</h3>
+  <% else %>
+    <h3>currently showing between <%= @transactions.first.date.strftime('%d/%m/%Y') %> and <%= @transactions.last.date.strftime('%d/%m/%Y') %></h3>
+  <% end %>
+<% end %>
 <table border="1">
   <tr>
     <th>Date</th>

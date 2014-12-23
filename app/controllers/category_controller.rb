@@ -16,7 +16,7 @@ class App
     @category = Category.new(params[:category])
 
     if @category.save
-      redirect '/category'
+      redirect '/'
     else
       erb :'category/new'
     end
