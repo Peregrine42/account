@@ -2,5 +2,6 @@
 <p>Category: <%= @transaction.category.name %></p>
 <p>Date: <%= @transaction.date.strftime("%A #{ @transaction.date.day.ordinalize } %B %Y") %></p>
 <p>Amount (£): <%= @transaction.amount_as_string %></p>
-<p><a href="/transaction/<%= @transaction.id %>/edit">Edit</a>
-<a href="/transaction/<%= @transaction.id %>/delete" onclick="if (!confirm('Are you sure you would like to delete this transaction?')) return false;">Delete</a>
+<p><a href="/transaction/<%= @transaction.id %>/edit">Edit Transaction</a>
+<p><a href="/transaction/<%= @transaction.id %>/delete" onclick="if (!confirm('Are you sure you would like to delete this transaction?')) return false;">Delete Transaction</a></p>
+<p><a href='/'>Back</a></p>

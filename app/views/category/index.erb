@@ -1,8 +1,7 @@
 <h1>Categories</h1>
-<p><a href=/>Back</a></p>
 <p><a href=/category/new>New Category</a></p>
 <%= @errors %>
-<table>
+<table class='table table-striped'>
   <% @categories.each do |category| %>
     <tr>
       <td>
@@ -18,3 +17,4 @@
   <% end %>
 </table>
 <p>Note: categories can only be deleted if there are no transactions in that category.</p>
+<p><a href=/>Back</a></p>
