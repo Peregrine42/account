@@ -27,10 +27,6 @@ class Transaction < ActiveRecord::Base
     as_money(running_total_for_category)
   end
 
-  def columns_from_left
-    category.column * 2
-  end
-
   def running_total
     previous_transactions(Transaction.all).inject(0) { |sum, t| sum + t.amount }
   end

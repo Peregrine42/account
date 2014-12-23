@@ -15,7 +15,7 @@
       <td><a href="/transaction/<%= transaction.id %>"><%= transaction.description %></a></td>
       <td><%= transaction.amount_as_string %></td>
       <td><%= transaction.running_total_as_string %></td>
-      <% (transaction.columns_from_left).times do %>
+      <% ((@categories.slice(0, @categories.find_index {|elt| elt.name == transaction.category.name }).count)*2).times do %>
         <td></td>
       <% end %>
       <td><%= transaction.amount_as_string %></td>

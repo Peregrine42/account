@@ -1,11 +1,11 @@
 Given "there is a transaction and a category in the database" do
-  category = Category.create!(name: 'the category', column: 0)
+  category = Category.create!(name: 'the category')
   category.transactions.create!(description: 'a transaction', amount: '4', date: Date.new(2014, 4, 4))
 end
 
 Given "there are some categories in the database" do
-  Category.create!(name: 'category 1', column: 0)
-  Category.create!(name: 'category 2', column: 1)
+  Category.create!(name: 'category 1')
+  Category.create!(name: 'category 2')
 end
 
 When "I click the transaction description on the homepage" do

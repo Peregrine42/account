@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830172123) do
+ActiveRecord::Schema.define(version: 20141223162333) do
 
   create_table "categories", force: true do |t|
-    t.text    "name"
-    t.integer "column"
+    t.text "name"
   end
 
   create_table "transactions", force: true do |t|

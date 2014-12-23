@@ -1,14 +1,14 @@
 class App
   get '/transaction/new' do
     @transaction = Transaction.new
-    @categories = Category.all.order('column')
+    @categories = Category.all
 
     erb :'transaction/new'
   end
 
   get '/transaction/:id/edit' do
     @transaction = Transaction.find(params[:id])
-    @categories = Category.all.order('column')
+    @categories = Category.all
     erb :'transaction/edit'
   end
 
@@ -33,7 +33,7 @@ class App
 
   post '/transaction' do
     @transaction = Transaction.new(params['transaction'])
-    @categories = Category.all.order('column')
+    @categories = Category.all
     if @transaction.save
       redirect '/'
     else
