@@ -12,3 +12,11 @@ Feature: CRUD categories
     And  click the New Category link
     And  fill out the New Category form
     Then I see the new category on the homepage
+
+  @wip
+  Scenario: deleting a category
+    Given there are some categories in the database
+    When  I visit the homepage
+    And   click the categories link
+    And   click the delete link on category 1
+    Then  category 1 disappears from the list

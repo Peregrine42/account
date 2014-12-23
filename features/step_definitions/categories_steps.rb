@@ -20,4 +20,10 @@ Then 'I see the new category on the homepage' do
   expect(page.body).to have_content 'groceries'
 end
 
+When 'click the delete link on category 1' do
+  page.all(:link,"Delete")[0].click
+end
 
+Then 'category 1 disappears from the list' do
+  expect(page.body).to_not have_content 'category 1'
+end
