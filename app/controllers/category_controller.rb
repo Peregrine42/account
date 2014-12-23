@@ -24,12 +24,13 @@ class App
 
   get '/category/:id/delete' do
     @category = Category.find(params[:id])
+    @categories = Category.all
     if @category.destroy
-      # flash success
+      redirect '/category'
     else
-      # flash nope
+      @errors = @category.errors[:destroy].join('. ') unless @category.errors.empty?
+      erb :'/category/index'
     end
-    redirect '/category'
   end
 
   get '/category/:id/edit' do
@@ -40,7 +41,7 @@ class App
   post '/category/:id' do
     @category = Category.update(params[:id], params[:category])
     if @category.valid?
-      redirect '/'
+      redirect '/category'
     else
       erb :'category/edit'
     end

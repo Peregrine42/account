@@ -1,6 +1,7 @@
-<a href=/>Back</a>
-<a href=/category/new>New Category</a>
 <h1>Categories</h1>
+<p><a href=/>Back</a></p>
+<p><a href=/category/new>New Category</a></p>
+<%= @errors %>
 <table>
   <% @categories.each do |category| %>
     <tr>
@@ -11,8 +12,9 @@
         <a href="/category/<%= category.id %>/edit">Edit</a>
       </td>
       <td>
-        <a href="/category/<%= category.id %>/delete">Delete</a>
+        <a href="/category/<%= category.id %>/delete" onclick="if (!confirm('Are you sure you would like to delete the <%= category.name %> category?')) return false;">Delete</a>
       </td>
     </tr>
   <% end %>
 </table>
+<p>Note: categories can only be deleted if there are no transactions in that category.</p>

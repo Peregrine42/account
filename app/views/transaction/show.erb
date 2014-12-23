@@ -3,6 +3,4 @@
 <p>Date: <%= @transaction.date.strftime("%A #{ @transaction.date.day.ordinalize } %B %Y") %></p>
 <p>Amount (£): <%= @transaction.amount_as_string %></p>
 <p><a href="/transaction/<%= @transaction.id %>/edit">edit</a>
-<form action="/transaction/<%= @transaction.id %>/delete" method="post">
-  <input type="submit" value="delete" />
-</form>
+<a href="/transaction/<%= @transaction.id %>/delete" onclick="if (!confirm('Are you sure you would like to delete this transaction?">Delete</a>

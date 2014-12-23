@@ -26,7 +26,7 @@ class App
     end
   end
 
-  post '/transaction/:id/delete' do
+  get '/transaction/:id/delete' do
     Transaction.find(params[:id]).destroy
     redirect '/'
   end

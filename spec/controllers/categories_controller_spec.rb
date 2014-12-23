@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe App, 'GET /category' do
 
-  let(:category1) { double(:category1, name: 'food', id: 1)  }
-  let(:category2) { double(:category2, name: 'drink', id: 2) }
+  let(:category1) { double(:category1, name: 'food', id: 1, errors: [])  }
+  let(:category2) { double(:category2, name: 'drink', id: 2, errors: []) }
 
   it 'gets all the categories' do
     allow(Category).to receive(:all).and_return([category1, category2])
@@ -47,7 +47,7 @@ end
 
 describe App, 'GET /delete' do
 
-  let(:category1) { double(:category1, name: 'food', id: 1)  }
+  let(:category1) { double(:category1, name: 'food', id: 1, errors: [])  }
 
   it 'deletes the category' do
     allow(Category).to receive(:find).and_return(category1)

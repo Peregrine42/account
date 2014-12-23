@@ -14,7 +14,7 @@ When "I click the transaction description on the homepage" do
 end
 
 When "I click the delete link for the transaction" do
-  click_button 'delete'
+  click_link 'Delete'
 end
 
 Then "the transaction is no longer in the database" do
