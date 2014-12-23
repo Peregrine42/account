@@ -20,7 +20,6 @@ Feature: CRUD categories
     And   click the delete link on category 1
     Then  category 1 disappears from the list
 
-  @wip
   Scenario: edit a category
     Given there are some categories in the database
     When  I visit the homepage

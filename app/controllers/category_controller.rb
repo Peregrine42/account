@@ -32,4 +32,18 @@ class App
     redirect '/category'
   end
 
+  get '/category/:id/edit' do
+    @category = Category.find(params[:id])
+    erb :'category/edit'
+  end
+
+  post '/category/:id' do
+    @category = Category.update(params[:id], params[:category])
+    if @category.valid?
+      redirect '/'
+    else
+      erb :'category/edit'
+    end
+  end
+
 end

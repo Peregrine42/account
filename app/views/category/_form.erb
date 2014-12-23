@@ -1,0 +1,5 @@
+<div class="form-group">
+  <label for="category[name]">Name</label>
+  <input type="text" class="form-control" name="category[name]" value="<%= @category.name %>">
+  <%= @category.errors.full_messages_for(:name).join('. ') %>
+</div>
