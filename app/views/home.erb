@@ -1,5 +1,5 @@
-<a href=/transaction/new>New Transaction</a>
-<a href=/category>Categories</a>
+<p><a href=/category>Category Details</a></p>
+<p><a href=/transaction/new>New Transaction</a></p>
 <table border="1">
   <tr>
     <th>Date</th>
@@ -23,7 +23,6 @@
     </tr>
   <% end %>
   <tr>
-    <td></td>
     <td></td>
     <td>Total (£)</td>
     <td><%= @total > 0 ? '+' : '' %><%= '%.2f' % @total %></td>

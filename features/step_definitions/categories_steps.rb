@@ -1,5 +1,5 @@
 When 'click the categories link' do
-  click_link 'Categories'
+  click_link 'Category Details'
 end
 
 Then 'I see the list of categories' do

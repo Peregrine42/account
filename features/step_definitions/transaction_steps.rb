@@ -50,7 +50,7 @@ Then "the transaction appears on the homepage" do
 end
 
 When "I click the edit link for the transaction" do
-  click_link 'edit'
+  click_link 'Edit'
 end
 
 When "I change some details" do
