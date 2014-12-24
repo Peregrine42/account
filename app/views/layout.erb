@@ -1,4 +1,12 @@
 <div class=container>
+  <% if flash[:success] %>
+    <br>
+    <div class="alert alert-success"><%= flash[:success] %></div>
+  <% end %>
+  <% if flash[:error] %>
+    <br>
+    <div class="alert alert-danger"><%= flash[:error] %></div>
+  <% end %>
   <%= yield %>
 </div>
 <link rel="stylesheet" href="/css/bootstrap.min.css">

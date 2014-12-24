@@ -1,7 +1,4 @@
 <h1>New Transaction</h1>
-<% if @transactions && @transactions.count == 0 %>
-  <h3>Since this is your first transaction, it might be best to put your current account balance as 'Brought Forward'</h3>
-<% end %>
 <p>Remember to use a minus symbol (-) for negative transactions</p>
 <form action="/transaction" method="post" role="form">
   <%= erb :'transaction/_form' %>

@@ -1,5 +1,5 @@
-<div class="form-group">
-  <label for="category[name]">Name</label>
+<div class="form-group <%= @category.errors[:name].count > 0 ? "has-error" : "" %>">
+  <label class="control-label" for="category[name]">Name</label>
   <input type="text" class="form-control" name="category[name]" value="<%= @category.name %>">
-  <%= @category.errors.full_messages_for(:name).join('. ') %>
+  <span class="text-danger"><%= @category.errors.full_messages_for(:name).join('. ') %></span>
 </div>

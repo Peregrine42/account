@@ -2,10 +2,14 @@
 <p><a href=/category>Category Details</a></p>
 <p><a href=/transaction/new>New Transaction</a></p>
 <% if @categories.empty? %>
-  <h3>To get started, click <a href=/category/new>here</a> to create a new category to use as a column heading.</h3>
+  <div class="alert alert-success">
+    To get started, click <a href=/category/new>here</a> to create a new category to use as a column heading.
+  </div>
 <% else %>
   <% if @transactions.empty? %>
-    <p>To get started adding incomings and outgoings, click <a href=/transaction/new>here</a> to create a new transaction.</p>
+    <div class="alert alert-success">
+      To add a transaction, click <a href=/transaction/new>here</a>
+    </div>
   <% else %>
     <p>currently showing between <%= @transactions.first.date.strftime('%d/%m/%Y') %> and <%= @transactions.last.date.strftime('%d/%m/%Y') %></p>
   <% end %>
@@ -23,14 +27,14 @@
     <tr>
       <td><%= transaction.date.strftime('%d/%m/%Y') %></td>
       <td><a href="/transaction/<%= transaction.id %>"><%= transaction.description %></a></td>
-      <td><%= transaction.amount_as_string %></td>
-      <td><%= transaction.running_total_as_string %></td>
+      <td class="text-right"><%= transaction.amount_as_string %></td>
+      <td class="text-right"><%= transaction.running_total_as_string %></td>
       <% @split = @categories.find_index {|elt| elt.name == transaction.category.name } %>
       <% (@split*2).times do %>
         <td></td>
       <% end %>
-      <td><%= transaction.amount_as_string %></td>
-      <td><%= transaction.running_total_for_category_as_string %></td>
+      <td class="text-right"><%= transaction.amount_as_string %></td>
+      <td class="text-right"><%= transaction.running_total_for_category_as_string %></td>
       <% ((@categories.count-@split-1)*2).times do %>
         <td></td>
       <% end %>
@@ -38,8 +42,8 @@
   <% end %>
   <tr>
     <td></td>
-    <td>Total (£)</td>
-    <td><%= @total > 0 ? '+' : '' %><%= '%.2f' % @total %></td>
+    <td class="text-right">Total (£)</td>
+    <td class="text-right"><%= @total > 0 ? '+' : '' %><%= '%.2f' % @total %></td>
     <td colspan=<%= ((@categories.count)*2)+1%></td>
   </tr>
 </table>

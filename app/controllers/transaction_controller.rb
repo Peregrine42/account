@@ -21,6 +21,7 @@ class App
     @transaction = Transaction.update(params[:id], params[:transaction])
     @categories = Category.all
     if @transaction.valid?
+      flash[:success] = 'Transaction updated successfully.'
       redirect '/'
     else
       erb :'transaction/edit'
@@ -37,8 +38,10 @@ class App
     @transactions = Transaction.all
     @categories = Category.all
     if @transaction.save
+      flash[:success] = 'Transaction created successfully.'
       redirect '/'
     else
+      flash.now[:error] = 'That last transcation was not created. Please check the errors below.'
       erb :'transaction/new'
     end
   end

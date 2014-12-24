@@ -1,23 +1,23 @@
-<div class="form-group">
-  <label for="description">Description</label>
+<div class="form-group <%= @transaction.errors[:description].count > 0 ? "has-error" : "" %>">
+  <label class="control-label" for="description">Description</label>
   <input type="text" class="form-control" name="transaction[description]" value="<%= @transaction.description %>">
-  <%= @transaction.errors.full_messages_for(:description).join('. ') %>
+  <span class="text-danger"><%= @transaction.errors.full_messages_for(:description).join('. ') %></span>
 </div>
 
-<div class="form-group">
-  <label for="amount">Amount (£)</label>
+<div class="form-group <%= @transaction.errors[:amount].count > 0 ? "has-error" : "" %>">
+  <label class="control-label" for="amount">Amount (£)</label>
   <input type="text" class="form-control" name="transaction[amount]" value="<%= @transaction.amount_as_string %>">
-  <%= @transaction.errors.full_messages_for(:amount).join('. ') %>
+  <span class="text-danger"><%= @transaction.errors.full_messages_for(:amount).join('. ') %></span>
 </div>
 
-<div class="form-group">
-  <label for="date">Date</label>
-  <input type="text" class="form-control" name="transaction[date]" value="<%= @transaction.date.nil? ? "": @transaction.date.strftime("%d/%m/%Y") %>">
-  Format: dd/mm/yyyy. <%= @transaction.errors.full_messages_for(:date).join('. ') %>
+<div class="form-group <%= @transaction.errors[:date].count > 0 ? "has-error" : "" %>">
+  <label class="control-label" class="control-label" for="transaction[date]">Date (dd/mm/yyyy)</label>
+  <input type="text" class="form-control" name="transaction[date]" value="<%= @transaction.date.nil? ? "": @transaction.date.strftime("%d/%m/%Y") %>" placeholder='dd/mm/yyyy'>
+  <span class="text-danger"><%= @transaction.errors.full_messages_for(:date).join('. ') %></span>
 </div>
 
 Category:
-<%= @transaction.errors.full_messages_for(:category).join('. ') %>
+<span class="text-danger"><%= @transaction.errors[:category].join('. ') %></span>
 <% @categories.each do |category| %>
   <div class="radio">
     <label>

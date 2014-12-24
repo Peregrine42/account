@@ -16,8 +16,10 @@ class App
     @category = Category.new(params[:category])
 
     if @category.save
+      flash[:success] = "Category '#{@category.name}' successfully created."
       redirect '/'
     else
+      flash.now[:error] = 'The new category could not be created, please see the errors below.'
       erb :'category/new'
     end
   end
@@ -41,8 +43,10 @@ class App
   post '/category/:id' do
     @category = Category.update(params[:id], params[:category])
     if @category.valid?
+      flash[:success] = "Category '#{@category.name}' successfully updated."
       redirect '/category'
     else
+      flash.now[:error] = 'The category could not be updated. Please see the errors below.'
       erb :'category/edit'
     end
   end
