@@ -26,7 +26,7 @@
   <% @transactions.each do |transaction| %>
     <tr>
       <td><%= transaction.date.strftime('%d/%m/%Y') %></td>
-      <td><a href="/transaction/<%= transaction.id %>"><%= transaction.description %></a></td>
+      <td class="text-nowrap"><a href="/transaction/<%= transaction.id %>"><%= transaction.description %></a></td>
       <td class="text-right"><%= transaction.amount_as_string %></td>
       <td class="text-right"><%= transaction.running_total_as_string %></td>
       <% @split = @categories.find_index {|elt| elt.name == transaction.category.name } %>

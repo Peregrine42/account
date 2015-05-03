@@ -1,6 +1,6 @@
 class App
   get '/' do
-    page_size = 10
+    page_size = 40
     params[:page] = (Transaction.all.count / page_size.to_f).ceil unless params[:page]
     params[:page] = 1 if (params[:page].to_i) < 1
     @page_number = params[:page].to_i

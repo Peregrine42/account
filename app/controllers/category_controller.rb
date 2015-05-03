@@ -17,7 +17,7 @@ class App
 
     if @category.save
       flash[:success] = "Category '#{@category.name}' successfully created."
-      redirect '/'
+      redirect '/category'
     else
       flash.now[:error] = 'The new category could not be created, please see the errors below.'
       erb :'category/new'
