@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
   has_many :transactions
 
   validates :name, presence: true
-  default_scope { order('name') }
+  default_scope { order('created_at') }
 
   def destroy
     if transactions.empty?

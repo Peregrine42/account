@@ -5,7 +5,7 @@ class App
     params[:page] = 1 if (params[:page].to_i) < 1
     @page_number = params[:page].to_i
     @transactions = Transaction.paginate(page: params[:page], per_page: page_size).table_order
-    @categories = Category.all
+    @categories = Category.order :created_at
     @total = Transaction.all.inject(0) { |total, transaction| transaction.amount + total }
     erb :'home'
   end
